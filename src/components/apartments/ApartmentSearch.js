@@ -3,9 +3,13 @@ import React, { useState } from 'react'
 import Heading from '../ui/Heading'
 import ApartmentSearchContainer from './ApartmentSearchContainer'
 import Input from '../ui/Input'
+import getApartments from '../../api/getApartments'
+
+
 
 function ApartmentSearch() {
 	const [zipCode, setZipCode] = useState('')
+
 
 	const zipCodeChangeHandler = (e) => {
 		setZipCode(e.target.value)
@@ -14,6 +18,7 @@ function ApartmentSearch() {
 	const searchZipCodeHandler = (e) => {
 		e.preventDefault()
 		console.log(zipCode)
+		getApartments(zipCode)
 	}
 
 	return (
@@ -28,6 +33,7 @@ function ApartmentSearch() {
 				/>
 			</form>
 		</ApartmentSearchContainer>
+		
 	)
 }
 
